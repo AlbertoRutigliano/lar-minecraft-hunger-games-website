@@ -18,8 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Perform your query
     $sql = "SELECT players.name, players.uuid, players.last_time_online, COALESCE(wins_count, 0) AS wins_count 
-            FROM players LEFT JOIN v_Scoreboard ON (v_Scoreboard.name = players.name) 
-            ORDER BY v_Scoreboard.wins_count DESC, players.last_time_online DESC LIMIT 10";
+            FROM players LEFT JOIN v_scoreboard ON (v_scoreboard.name = players.name) 
+            ORDER BY v_scoreboard.wins_count DESC, players.last_time_online DESC LIMIT 10";
     $result = $conn->query($sql);
 
     if ($result) {
