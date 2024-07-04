@@ -1,0 +1,5 @@
+# .htaccess
+SetEnv DB_HOST {DB_HOST}
+SetEnv DB_NAME {DB_NAME}
+SetEnv DB_USER {DB_USER}
+SetEnv DB_PASS {DB_PASS}
