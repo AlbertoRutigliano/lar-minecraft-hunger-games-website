@@ -58,21 +58,19 @@
 </section>
 <!-- ***** Item Details Area End ***** -->
 <script>
-    $(document).ready(function(){
+   $(document).ready(function(){
             $('#address').tooltip({
                 html: true
             });
         });
     document.getElementById('address').innerHTML = server.ip + ":" + server.port;
     $('#other-server-info').hide();
-    const formdata = new FormData();
-    formdata.append("serverId", server.multicraftId);
-    formdata.append("apiUser", "api");
-    formdata.append("apiPassword", "FM+ae5HGsKiw63");
+	const formdata = new FormData();
     formdata.append("command", "getServerStatus");
+    formdata.append("params", JSON.stringify([server.multicraftId, true]));
 
     function getServerInfo() {
-        fetch("http://" + server.ip + "/multicraft/serverapi.php", {
+        fetch("/lar-hunger-games/callMulticraftAPI.php", {
                 //fetch("http://" + server.ip + "/multicraft/getServerStatus.php?_=" + new Date().getTime(), {
                 method: 'POST',
                 body: formdata,
